@@ -1,0 +1,42 @@
+#root {
+  max-width: none;
+  margin: 0 auto;
+  /*padding: 2rem;*/
+  text-align: left;
+}
+
+
+.card {
+  border: 1px solid rgb(236, 236, 236);
+  border-radius: 10px ;
+  box-shadow: 5px 5px 5px rgb(185, 185, 185 0.1);
+  padding: 20px;
+  margin: 10px; 
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+input[type='text'] {
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  display: block;
+  font-size: 16px;
+  padding: 13px;
+  width: 100%;
+}
+
+.back_forth{
+  background-color: rgb(235, 235, 235);
+  color: black;
+  font-size: 12px;
+  margin: 2px;
+}
+
+.submit{
+  background-color: blue;
+  color: white;
+}
+ 
