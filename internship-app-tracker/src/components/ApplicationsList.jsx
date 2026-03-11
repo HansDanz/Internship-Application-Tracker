@@ -1,25 +1,38 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import ApplicationCard from "./ApplicationCard.jsx"
 import NewApplication from './NewApplication.jsx';
+import {fetchApplications, addApplications, editApplications, deleteApplications} from "../api/applications.jsx";
 
 function ApplicationsList(){
-    const [applications, setApplications] = useState(
+    const [applications, setApplications] = useState([])
+        /*
         [
         {id: 1, company: "GovTech", status: "Interview", link: "#"},
         {id: 2, company: "Grab", status: "Applied", link: "https://www.grab.careers/en/"}
         ]
-    )
+
+        useEffect(() => {
+        fetch("http://127.0.0.1:8000/applications")
+            .then(res => res.json())
+            .then(data => setApplications(data));
+    }, []);
+        */
+    
+    useEffect(() => {
+        fetchApplications().then(data => setApplications(data));
+    }, []);
+    
 
     function addApplication(app) {
-    setApplications([...applications, app]);
+        addApplications(app).then(data => setApplications(data));
     }
 
     function deleteApplication(id) {
-        setApplications(applications.filter(app => app.id !== id));
+        deleteApplications(id).then(data => setApplications(data));
     }
     
     function editApplication(id, editedApp) {
-        setApplications(applications.map(application => application.id === id ? editedApp: application));
+        editApplications(id, editedApp).then(data => setApplications(data));
     }
 
     return(
