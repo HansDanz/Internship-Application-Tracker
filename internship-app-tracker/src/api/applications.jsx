@@ -43,11 +43,13 @@ export async function editApplications(id, application){
 }
 
 export async function deleteApplications(id){
+    console.log("Trying")
     try{
+        console.log("Trying")
         const response = await fetch(`${API_URL}/${id}`, {
             method: "DELETE"
         });
-        return response.json();
+         return response.json();
     }
     catch(error){
         console.log(error)

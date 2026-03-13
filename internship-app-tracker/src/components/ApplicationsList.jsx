@@ -4,6 +4,8 @@ import NewApplication from './NewApplication.jsx';
 import {fetchApplications, addApplications, editApplications, deleteApplications} from "../api/applications.jsx";
 
 function ApplicationsList(){
+    console.log("Applications component rendered");
+    
     const [applications, setApplications] = useState([])
         /*
         [
@@ -21,6 +23,10 @@ function ApplicationsList(){
     useEffect(() => {
         fetchApplications().then(data => setApplications(data));
     }, []);
+
+    useEffect(() => {
+        console.log("Applications state:", applications);
+    }, [applications]);
     
 
     function addApplication(app) {
