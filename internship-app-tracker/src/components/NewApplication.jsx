@@ -9,16 +9,15 @@ function NewApplication({ onAddApplication }){
         e.preventDefault();
 
         const newApp = {
-            id: Date.now(),
             company,
-            status: "Applied",
+            status: 0,
             link
         };
 
         onAddApplication(newApp);
 
         setCompany("");
-        setStatus("");
+        setStatus();
         setLink("");
     }
     

@@ -6,12 +6,13 @@ function ApplicationCard(props){
     const [company, setCompany] = useState(props.company)
     const [status, setStatus] = useState(props.status)
     const [link, setLink] = useState(props.link)
+    const STATUS_FLOW = ["Prepping Application", "Applied", "Interview/Test", "Accepted", "Rejected"]
 
     function handleSubmit(e) {
         e.preventDefault();
 
         const editedApp = {
-            id: props.id,
+            //id: props.id,
             company,
             status: status,
             link
@@ -21,6 +22,54 @@ function ApplicationCard(props){
         setIsEditing(false);
 
     }
+
+    function AdvanceState(){
+        if (Number(status) <= 2) {
+            setStatus(Number(status) + 1)
+        }
+        
+        const editedApp = {
+            //id: props.id,
+            company,
+            status: status,
+            link
+        };
+
+        props.onEdit(props.id, editedApp);
+
+    }
+
+    function ReverseState(){
+        if (Number(status) > 0) {
+            setStatus(Number(status) - 1)
+        }
+        
+        const editedApp = {
+            //id: props.id,
+            company,
+            status: status,
+            link
+        };
+
+        props.onEdit(props.id, editedApp);
+
+    }
+    
+    function Rejected(){
+        setStatus(Number(4))
+        
+        
+        const editedApp = {
+            //id: props.id,
+            company,
+            status: status,
+            link
+        };
+
+        props.onEdit(props.id, editedApp);
+
+    }
+        
     
     return(
         <div className="card">  
@@ -40,9 +89,21 @@ function ApplicationCard(props){
                 <>
                     <h4>{company}</h4>
                     <p>Link: <a href={props.link}>{props.link}</a> </p>
-                    <p>Status: {status}</p>
-                    <button className="back_forth">Prev. Stage</button>
-                    <button className="back_forth">Next Stage</button>
+                    <p>Status: {STATUS_FLOW[status]}</p>
+
+
+                    {STATUS_FLOW[status] == "Interview/Test" ? (
+                        <>
+                        <button className="back_forth" onClick={() => AdvanceState()}>Accepted</button>
+                        <button className="back_forth" onClick={() => Rejected()}>Rejected</button>
+                        </>
+                    ) : (
+                        <>
+                        <button className="back_forth" onClick={() => ReverseState()}>Prev. Stage</button>
+                        <button className="back_forth" onClick={() => AdvanceState()}>Next Stage</button>
+                        </>
+                    )
+                    }
                     <br/>
                     <button onClick={() => setIsEditing(true)}>Edit</button>
                     <button onClick={props.onDelete}>Delete</button>
