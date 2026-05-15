@@ -1,0 +1,13 @@
+ services:
+  parent: 
+    build:  . 
+
+  frontend:
+    build:  ./internship-app-tracker  
+    ports:
+      - '5173:5173'
+
+  backend:
+    build:  ./internship-app-tracker/backend
+    ports:
+      - '8000:8000'
