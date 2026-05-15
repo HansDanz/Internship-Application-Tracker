@@ -1,5 +1,5 @@
 # Internship-Application-Tracker
-A full-stack web application for tracking internship and job applications with status progression and CRUD functionality. Doubles as a Self-directed learning project to learn React, FastAPI, and SQL
+A full-stack web application for tracking internship and job applications with status progression and CRUD functionality. Doubles as a Self-directed learning project to learn React, FastAPI, SQL, and Docker
 
 ---
 
