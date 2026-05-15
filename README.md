@@ -56,29 +56,31 @@ This architecture separates the frontend interface from the backend API and data
 
 ---
 
-## Prerequisites
+## Usage Procedure
 
-Install the following:
-
-- Python 3.10+
-- Node.js (includes npm)
-
----
-
-## Backend Setup
-
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload
+1. Clone the repository:
+```
+git clone https://github.com/HansDanz/Internship-Application-Tracker.git
+cd Internship-Application-Tracker
 ```
 
----
+2. Install Docker Desktop
 
-## Frontend Setup
+3. Build the Docker images:
+```
+docker compose built
+```
 
-```bash
-cd frontend
-npm install
-npm run dev
+4. Start the application:
+```
+docker compose up -d
+```
+
+5. Access the app:
+- Frontend (Vite): http://localhost:5173
+- Backend API (FastAPI): http://localhost:8000
+
+6. Stop the app:
+```
+docker compose down
 ```
