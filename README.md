@@ -68,7 +68,7 @@ cd Internship-Application-Tracker
 
 3. Build the Docker images:
 ```
-docker compose built
+docker compose build
 ```
 
 4. Start the application:
