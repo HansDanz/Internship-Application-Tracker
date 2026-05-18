@@ -38,9 +38,9 @@ Other Tools:
 
 ---
 
-## Screenshots
+## Demo Video
 
-![Dashboard](screenshots/dashboard.png)
+[![Watch the video](https://img.youtube.com/vi/EMFvrXlyrl8/0.jpg)](https://www.youtube.com/watch?v=EMFvrXlyrl8)
 
 ---
 
